@@ -16,21 +16,38 @@ body {
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: space-between;
     gap: 20px;
     height: 15vh;
     align-items: center;
     background-color: rgb(34, 34, 59);
-    padding-right: 20px;
+    padding: 0 20px;
     border-bottom: 10px solid rgb(74, 78, 105);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-.header > a {
+
+.headerLink {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 20px;
+    height: 15vh;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+}
+.headerLink > a {
     font-style: none;
     color: rgb(242, 233, 228);
     text-decoration: none;
     font-size: 20px;
+}
+.headerLink > a:hover {
+    color: rgba(181, 101, 40, 0.834);
+    text-decoration: underline;
 }
 .form {
     margin-top: 20px;
@@ -62,12 +79,12 @@ body {
     width: 200px;
     height: 40px;
     color: rgb(242, 233, 228);
-    background-color: rgba(181, 101, 40, 0.834);
+    background-color: black;
     border: 1px;
     border-radius: 10px;
 }
 .form > button:hover {
-    background-color: rgba(248, 159, 91, 0.54);
+    background-color: rgba(181, 101, 40, 0.834);
     cursor: pointer;
     transition-duration: 0.2s;
 }

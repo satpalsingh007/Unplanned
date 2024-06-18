@@ -22,6 +22,7 @@ const LoginPage = () => {
         <>
             <div>
                 <form className="form" method="POST">
+                    <div>Login</div>
                     <div className="formElement">
                         <label htmlFor="email">E-mail</label>
                         <input

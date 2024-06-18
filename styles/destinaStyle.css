@@ -1,5 +1,5 @@
 .destina {
-    height: 80vh;
+    /* height: 80vh; */
     width: 60vw;
     background-color: rgba(44, 42, 42, 0.576);
     border-radius: 20px;
@@ -7,17 +7,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    /* background-color: rgba(74, 78, 105, 0.472); */
-    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.689);
+    background-color: rgba(0, 0, 0, 0.691);
+    backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    transition: height 0.3s ease;
 }
 .botHeader {
     color: rgb(242, 233, 228);
-    height: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,13 +31,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1% 10% 0px 10%;
+    padding: 0 10% 0px 10%;
+    cursor: pointer;
+    background-color: black;
+    border-radius: 20px 20px 0 0;
+    height: 40px;
 }
 .botAnswer {
     width: 99%;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     overflow-y: auto;
-    padding: 10px;
+    padding: 10px 20px;
+    max-height: 400px; /* Set a reasonable max-height */
+    transition: max-height 0.3s ease;
 
     /* Internet Explorer and Edge */
     /* -ms-overflow-style: none; */
@@ -61,6 +68,7 @@
 .botBody {
     display: flex;
     padding-bottom: 12px;
+    transition: opacity 0.3 ease;
 }
 .botButton {
     background-color: rgb(34, 34, 59);
@@ -80,4 +88,31 @@
     background-color: rgb(242, 233, 228);
     font-size: 20px;
     border-radius: 10px 0px 0px 10px;
+}
+.botTextArea::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.botNotVisible {
+    display: none;
+}
+
+.botShapeChange {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    bottom: 25px;
+    right: 25px;
+    transition: 0.3s ease;
+}
+
+.botShapeChange:hover {
+    background-color: rgba(181, 101, 40, 0.834);
+    color: black;
 }

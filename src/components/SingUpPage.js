@@ -46,8 +46,8 @@ const SignUpPage = () => {
         <>
             <div>
                 <form className="form" onSubmit={handleSubmit} method="POST">
-                    {" "}
-                    {/* Specify method as "POST" */}
+                    <div>Signup</div>
+
                     <div className="formElement">
                         <label htmlFor="email">E-mail</label>
                         <input

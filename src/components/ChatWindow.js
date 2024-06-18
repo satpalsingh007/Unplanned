@@ -3,7 +3,7 @@ import axios from "axios";
 const ChatWindow = () => {
     let [question, setQuestion] = useState("");
     let [answer, setAnswer] = useState("");
-    let [visible, setVisibel] = useState(true);
+    let [visible, setVisible] = useState(false);
     async function answerGenerator() {
         setAnswer("Loading...");
         const response = await axios({
@@ -15,7 +15,7 @@ const ChatWindow = () => {
                         parts: [
                             {
                                 text:
-                                    "you are a chat bot named Destina and youre a travel guide which tells the user about places they can visit, with a little info about that place, temprature and weather   and also about the destinations, now i will ask you the queries i have" +
+                                    "You are a chatbot named Destina and you're a travel guide. Tell the user about places they can visit, including a little info about that place, temperature and weather, and things to do in those places. Provide the answer in an ordered list and the info in points as an unordered list, formatted with proper HTML tags like heading tag paragraph tag , list tags, use br tags also after each parahgraph,increase readability without using asterisks (*). Make sure the solution includes proper formatting, meaning switching lines where necessary. Now I will ask you the queries I have:" +
                                     question,
                             },
                         ],
@@ -23,21 +23,33 @@ const ChatWindow = () => {
                 ],
             },
         });
-        // setAnswer=
         setAnswer(response.data.candidates[0].content.parts[0].text);
     }
+    let isVisible = visible ? "" : "botNotVisible";
+    let shapeChange = visible ? "" : "botShapeChange";
 
     return (
         <>
-            <div className="destina">
+            <div className={`destina ${shapeChange}`}>
                 <div className="botHeader">
-                    <div className="botTitleBar" onClick={() => {}}>
+                    <div
+                        className={`botTitleBar ${shapeChange}`}
+                        onClick={() => {
+                            setVisible(!visible);
+                        }}
+                    >
                         <div>Desti₪a</div>
-                        <div>▼</div>
+                        <div>{visible ? "▼" : "▲"}</div>
                     </div>
-                    <div className="botAnswer">{answer}</div>
+                    {/* <div className="botAnswer">{answer}</div> */}
+                    {visible && (
+                        <div
+                            className={`botAnswer ${isVisible}`}
+                            dangerouslySetInnerHTML={{ __html: answer }}
+                        />
+                    )}
                 </div>
-                <div className="botBody">
+                <div className={`botBody ${isVisible} `}>
                     <textarea
                         className="botTextArea"
                         value={question}
