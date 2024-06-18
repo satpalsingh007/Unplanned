@@ -1,0 +1,83 @@
+.destina {
+    height: 80vh;
+    width: 60vw;
+    background-color: rgba(44, 42, 42, 0.576);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* background-color: rgba(74, 78, 105, 0.472); */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.botHeader {
+    color: rgb(242, 233, 228);
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* justify-content: space-between; */
+    /* overflow: scroll; */
+}
+.botTitleBar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 10% 0px 10%;
+}
+.botAnswer {
+    width: 99%;
+    overflow-x: scroll;
+    overflow-y: auto;
+    padding: 10px;
+
+    /* Internet Explorer and Edge */
+    /* -ms-overflow-style: none; */
+    /* Firefox */
+    /* scrollbar-width: none;  */
+}
+
+.botAnswer::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.botAnswer::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+.botAnswer::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.botBody {
+    display: flex;
+    padding-bottom: 12px;
+}
+.botButton {
+    background-color: rgb(34, 34, 59);
+    border: 1px solid black;
+    border-radius: 0px 10px 10px 0px;
+    width: 50px;
+    color: rgb(242, 233, 228);
+    border-left: 0;
+}
+.botTextArea {
+    padding-left: 12px;
+    /* padding-top: 12px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: rgb(242, 233, 228);
+    font-size: 20px;
+    border-radius: 10px 0px 0px 10px;
+}

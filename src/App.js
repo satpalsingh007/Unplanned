@@ -4,12 +4,14 @@ import Header from "./components/Header";
 import LoginPage from "./components/LoginPage";
 import SignUp from "./components/SingUpPage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import ChatWindow from "./components/ChatWindow";
 
 const App = () => {
     return (
         <div>
             <Header />
             <Outlet />
+            <ChatWindow />
         </div>
     );
 };
