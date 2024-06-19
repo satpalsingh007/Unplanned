@@ -52,6 +52,8 @@ const ChatWindow = () => {
                 <div className={`botBody ${isVisible} `}>
                     <textarea
                         className="botTextArea"
+                        id="botArea"
+                        name="botTextArea"
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
                         cols={"50"}

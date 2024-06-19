@@ -5,6 +5,9 @@ import LoginPage from "./components/LoginPage";
 import SignUp from "./components/SingUpPage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ChatWindow from "./components/ChatWindow";
+import HomePage from "./components/HomePage";
+import Map from "./components/MapComponent";
+import MapComponent from "./components/MapComponent";
 
 const App = () => {
     return (
@@ -12,6 +15,7 @@ const App = () => {
             <Header />
             <Outlet />
             <ChatWindow />
+            <MapComponent />
         </div>
     );
 };
@@ -20,6 +24,10 @@ const appRouter = createBrowserRouter([
         path: "/",
         element: <App />,
         children: [
+            {
+                path: "/home",
+                element: <HomePage />,
+            },
             {
                 path: "/login",
                 element: <LoginPage />,
