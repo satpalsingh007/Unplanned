@@ -3,3 +3,13 @@
     height: 85vh;
     width: 100vw;
 }
+
+.routeSearchBar {
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-top: 3px;
+    z-index: 9;
+    padding-left: 60px;
+}
