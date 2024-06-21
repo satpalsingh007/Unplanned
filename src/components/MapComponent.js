@@ -1,3 +1,4 @@
+require("dotenv").config();
 import { useState, useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -5,7 +6,8 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine";
 
 const MapComponent = () => {
-    const geocodeApiKey = "9131a2ed836148ccbb97c2d80e5ce04f";
+    const geocodeApiKey = process.env.GEOCODE_API_KEY;
+    const openweatherApiKey = process.env.OPENWEATHER_API_KEY;
 
     const mapRef = useRef(null);
     const [startLocation, setStartLocation] = useState("");
@@ -15,10 +17,7 @@ const MapComponent = () => {
     let streetView = "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}";
     let satelliteView = "http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}";
     let terrainView = "http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}";
-    let temperatureView =
-        "http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=a13c324b2dcee94896a0abb202e6b9cf";
-
-    // let xyz = `https://maps.openweathermap.org/maps/2.0/weather/1h/TA2/{z}/{x}/{y}?appid=a13c324b2dcee94896a0abb202e6b9cf`;
+    let temperatureView = `http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${openweatherApiKey}`;
 
     const loadCurrentPosition = (latitude, longitude) => {
         if (!mapRef.current) {
@@ -33,7 +32,7 @@ const MapComponent = () => {
             // L.marker([latitude, longitude]).addTo(map);
         }
     };
-    //function to convert places name to geolocation
+    //function to convert places name to co-ordinates (latitude, longitude)
     const geocodeLocation = async (location) => {
         const response = await fetch(
             `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
@@ -72,19 +71,11 @@ const MapComponent = () => {
         } catch (error) {
             alert(error.message);
         }
-
-        // L.Routing.control({
-        //     waypoints: [
-        //         L.latLng(latitude, longitude),
-        //         L.latLng(28.7041, 77.1025),
-        //     ],
-        //     routeWhileDragging: true,
-        // }).addTo(mapRef.current);
     };
 
     useEffect(() => {
         if (navigator.geolocation) {
-            console.log("hellooooooooo");
+            // console.log("testing purpose");
             navigator.geolocation.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords;
                 loadCurrentPosition(latitude, longitude);
@@ -98,18 +89,35 @@ const MapComponent = () => {
         <div className="mapRouting">
             <div className="routeSearchBar">
                 <input
+                    className="mapInput"
                     type="text"
                     placeholder="Start location"
                     value={startLocation}
                     onChange={(e) => setStartLocation(e.target.value)}
                 />
                 <input
+                    className="mapInput"
                     type="text"
                     placeholder="End location"
                     value={endLocation}
                     onChange={(e) => setEndLocation(e.target.value)}
                 />
-                <button onClick={createRoute}>Find Route</button>
+                <button className="mapButton" onClick={createRoute}>
+                    Find Route
+                </button>
+                <button
+                    className="mapButton"
+                    onClick={() => {
+                        setStartLocation("");
+                        setEndLocation("");
+                        if (routeControl) {
+                            mapRef.current.removeControl(routeControl);
+                            setRouteControl(null);
+                        }
+                    }}
+                >
+                    reset
+                </button>
             </div>
             <div id="map"></div>
         </div>

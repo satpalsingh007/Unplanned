@@ -1,13 +1,15 @@
+require("dotenv").config();
 import { useState } from "react";
 import axios from "axios";
 const ChatWindow = () => {
+    const googlegeminiApiKEY = process.env.GOOGLEGEMINI_API_KEY;
     let [question, setQuestion] = useState("");
     let [answer, setAnswer] = useState("");
     let [visible, setVisible] = useState(false);
     async function answerGenerator() {
         setAnswer("Loading...");
         const response = await axios({
-            url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyDWtaXpidtiMu1T_dtYvxRVcAakwgTJpFo",
+            url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${googlegeminiApiKEY}`,
             method: "post",
             data: {
                 contents: [

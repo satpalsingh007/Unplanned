@@ -5,11 +5,42 @@
 }
 
 .routeSearchBar {
+    width: 280px;
+    height: 170px;
     position: absolute;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.689);
+    background-color: rgba(0, 0, 0, 0.691);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    gap: 10px;
     align-items: center;
-    padding-top: 3px;
+    justify-content: center;
+    bottom: 20px;
+    left: 20px;
     z-index: 9;
-    padding-left: 60px;
+}
+.mapButton {
+    width: 80px;
+    height: 30px;
+    color: rgb(242, 233, 228);
+    background-color: black;
+    border: 1px;
+    border-radius: 10px;
+}
+.mapButton:hover {
+    background-color: rgba(181, 101, 40, 0.834);
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+.mapInput {
+    width: 250px;
+    height: 30px;
+    border: 1px solid;
+    padding-left: 5px;
+    background-color: rgb(242, 233, 228);
+    border: 1.6px solid;
+    border-radius: 8px;
 }

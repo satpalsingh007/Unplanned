@@ -12,7 +12,7 @@ const LoginPage = () => {
                 password,
             });
             alert("Login successful");
-            console.log(res.data); // Handle token storage
+            console.log(res.data);
         } catch (error) {
             console.error(error);
             alert("Login failed");

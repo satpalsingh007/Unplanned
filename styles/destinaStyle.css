@@ -1,7 +1,6 @@
 .destina {
     /* height: 80vh; */
     width: 60vw;
-    background-color: rgba(44, 42, 42, 0.576);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
