@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
-const { User } = require("./database/connect");
+const { User } = require("database/connect");
 const path = require("path");
 // Middleware to parse JSON bodies
 app.use(express.json());
