@@ -5,8 +5,7 @@
     "main": "App.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "startserver": "node server/index.js",
-        "vercel-build": "npm install && npm run build"
+        "start": "nodemon index.js"
     },
     "author": "Satpal Singh",
     "license": "ISC",
