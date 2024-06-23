@@ -1,6 +1,6 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
-const uri =
-    "mongodb+srv://not_satpal_singh:sahilsagar@satpalcluster.tiwi9as.mongodb.net/AuthenticationDb?retryWrites=true&w=majority&appName=satpalCluster";
+const uri = process.env.MONGODB_URI;
 
 mongoose
     .connect(uri)
@@ -19,20 +19,3 @@ const newSchema = new mongoose.Schema({
 });
 const User = mongoose.model("User", newSchema);
 module.exports = { mongoose, User };
-
-// project/
-// │
-// ├── index.html
-// ├── src/
-// │   ├── components/
-// │   │   ├── Header.js
-// │   │   ├── LoginPage.js
-// │   │   └── SignUpPage.js
-// │   │
-// │   ├── database/
-// │   │   └── connect.js
-// │   │
-// │   ├── App.js
-// │   └── route.js
-// │
-// └── style.css

@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import axios from "axios";
+// import MapComponent from "./MapComponent";
+const MapComponent = lazy(() => import("./MapComponent"));
+const ChatWindow = lazy(() => import("./ChatWindow"));
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -12,6 +16,7 @@ const LoginPage = () => {
                 password,
             });
             alert("Login successful");
+            setIsLoggedIn(true);
             console.log(res.data);
         } catch (error) {
             console.error(error);
@@ -20,36 +25,43 @@ const LoginPage = () => {
     };
     return (
         <>
-            <div>
-                <form className="form" method="POST">
-                    <div>Login</div>
-                    <div className="formElement">
-                        <label htmlFor="email">E-mail</label>
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="xyz@gmail.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        ></input>
-                    </div>
-                    <div className="formElement">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        ></input>
-                    </div>
-                    <button type="submit" onClick={handleSubmit}>
-                        Submit
-                    </button>
-                </form>
-            </div>
+            {!isLoggedIn ? (
+                <div>
+                    <form className="form" method="POST">
+                        <div>Login</div>
+                        <div className="formElement">
+                            <label htmlFor="email">E-mail</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="xyz@gmail.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            ></input>
+                        </div>
+                        <div className="formElement">
+                            <label htmlFor="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            ></input>
+                        </div>
+                        <button type="submit" onClick={handleSubmit}>
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            ) : (
+                <Suspense fallback={<div>loading map...</div>}>
+                    <MapComponent />
+                    <ChatWindow />
+                </Suspense>
+            )}
         </>
     );
 };

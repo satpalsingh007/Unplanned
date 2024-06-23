@@ -1,0 +1,20 @@
+/project-root
+├── src
+│   ├── component
+│   │   ├── Component1.js
+│   │   ├── Component2.js
+│   │   └── ...
+│   ├── database
+│   │   └── connect.js
+│   ├── resources
+│   │   └── images
+│   │       ├── image1.jpg
+│   │       ├── image2.jpg
+│   │       └── ...
+│   ├── App.js
+│   └── route.js
+├── style
+│   └── ...
+├── index.html
+├── package-lock.json
+└── package.json
