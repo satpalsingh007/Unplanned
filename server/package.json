@@ -1,0 +1,39 @@
+{
+    "name": "unplanned-server",
+    "version": "1.0.0",
+    "description": "This is an your own travel Guide, it's having a bot name ~Destina which will be your private destination guide",
+    "main": "App.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "parcel index.html",
+        "startserver": "node server/index.js"
+    },
+    "author": "Satpal Singh",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.7.2",
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "leaflet": "^1.9.4",
+        "leaflet-routing-machine": "^3.2.12",
+        "mongodb": "^6.7.0",
+        "mongoose": "^8.4.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^6.23.1"
+    },
+    "devDependencies": {
+        "buffer": "^6.0.3",
+        "crypto-browserify": "^3.12.0",
+        "events": "^3.3.0",
+        "os-browserify": "^0.3.0",
+        "parcel": "^2.12.0",
+        "path-browserify": "^1.0.1",
+        "process": "^0.11.10",
+        "stream-browserify": "^3.0.0",
+        "string_decoder": "^1.3.0",
+        "vm-browserify": "^1.1.2"
+    }
+}
