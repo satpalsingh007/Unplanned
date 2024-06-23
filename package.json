@@ -2,7 +2,6 @@
     "name": "unplanned",
     "version": "1.0.0",
     "description": "This is an your own travel Guide, it's having a bot name ~Destina which will be your private destination guide",
-    "main": "src/App.js",
     "scripts": {
         "start": "parcel index.html"
     },
