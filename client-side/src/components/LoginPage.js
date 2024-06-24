@@ -8,6 +8,7 @@ const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    axios.defaults.withCredentials=true;
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
