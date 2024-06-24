@@ -8,10 +8,11 @@ const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    axios.defaults.withCredentials=true;
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:3000/login", {
+            const res = await axios.post("https://unplanned-server.vercel.app/login", {
                 email,
                 password,
             });

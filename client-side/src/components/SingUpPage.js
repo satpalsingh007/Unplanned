@@ -22,7 +22,7 @@ const SignUpPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent default form submission behavior
         try {
-            const response = await fetch("http://localhost:3000/signup", {
+            const response = await fetch("https://unplanned-server.vercel.app/signup", {
                 method: "POST", // Assuming this should be a POST request
                 headers: {
                     "Content-Type": "application/json",
