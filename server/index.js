@@ -6,6 +6,7 @@ const { User } = require("./database/connect");
 const path = require("path");
 // Middleware to parse JSON bodies
 app.use(express.json());
+const PORT = process.env.PORT || 3000;
 
 app.use(
     cors({
@@ -64,6 +65,6 @@ app.get("/", (req, res) => {
     res.json("Hello");
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log("Server is running on port 3000");
 });
