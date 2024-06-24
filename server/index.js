@@ -8,13 +8,17 @@ const path = require("path");
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
-app.use(
-    cors({
-        origin: ["https://unplanned.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true,
-    })
-);
+app.use(cors());
+
+app.options("*", cors());
+
+// app.use(
+//     cors({
+//         origin: ["https://unplanned.vercel.app"],
+//         methods: ["POST", "GET"],
+//         credentials: true,
+//     })
+// );
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Content-Type");
     next();
