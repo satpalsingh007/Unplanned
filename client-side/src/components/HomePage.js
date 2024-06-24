@@ -1,6 +1,6 @@
 const HomePage = () => {
     return (
-        <>
+        <div className="homepage">
             <h2>What is Unplanned</h2>
             <div>
                 Unplanned is a website which can be used for finding your next
@@ -16,7 +16,7 @@ const HomePage = () => {
                 features 😀
             </div>
             <h2>THANK-YOU</h2>
-        </>
+        </div>
     );
 };
 export default HomePage;

@@ -7,12 +7,13 @@ const path = require("path");
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-app.use(cors({
-    origin:["https://unplanned.vercel.app/"],
-    methods:["POST", "GET"],
-    credentials: true    
-}
-    ));
+app.use(
+    cors({
+        origin: ["https://unplanned.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true,
+    })
+);
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Content-Type");
     next();
@@ -59,7 +60,6 @@ app.post("/login", async (req, res) => {
     }
 });
 
-// Serve the React app for all other routes
 app.get("/", (req, res) => {
     res.json("Hello");
 });
