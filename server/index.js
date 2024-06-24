@@ -8,7 +8,7 @@ const path = require("path");
 app.use(express.json());
 
 app.use(cors({
-    origin:[],
+    origin:["https://unplanned.vercel.app"],
     methods:["POST", "GET"],
     credentials: true    
 }
