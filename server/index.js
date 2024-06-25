@@ -4,21 +4,13 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const { User } = require("./database/connect");
 const path = require("path");
+require("dotenv").config();
+
 // Middleware to parse JSON bodies
-app.use(express.json());
 const PORT = process.env.PORT || 3000;
+app.use(express.json());
 
 app.use(cors());
-
-app.options("*", cors());
-
-// app.use(
-//     cors({
-//         origin: ["https://unplanned.vercel.app"],
-//         methods: ["POST", "GET"],
-//         credentials: true,
-//     })
-// );
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Content-Type");
     next();
@@ -65,10 +57,11 @@ app.post("/login", async (req, res) => {
     }
 });
 
-app.get("/", (req, res) => {
-    res.json("Hello");
-});
+// Serve the React app for all other routes
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "../index.html"));
+// });
 
 app.listen(PORT, () => {
-    console.log("Server is running on port 3000");
+    console.log(`Server is running on port ${PORT}`);
 });
