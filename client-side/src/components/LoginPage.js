@@ -1,8 +1,10 @@
+require("dotenv").config();
 import { useState, lazy, Suspense } from "react";
 import axios from "axios";
 // import MapComponent from "./MapComponent";
 const MapComponent = lazy(() => import("./MapComponent"));
 const ChatWindow = lazy(() => import("./ChatWindow"));
+const PORT = process.env.PORT || 3000;
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -11,7 +13,7 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:3000/login", {
+            const res = await axios.post(`${PORT}/login`, {
                 email,
                 password,
             });

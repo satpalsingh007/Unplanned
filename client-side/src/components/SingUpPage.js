@@ -1,6 +1,7 @@
+require("dotenv").config();
 import { useState } from "react";
 import axios from "axios";
-
+const PORT = process.env.PORT || 3000;
 const SignUpPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -22,7 +23,7 @@ const SignUpPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent default form submission behavior
         try {
-            const response = await fetch("http://localhost:3000/signup", {
+            const response = await fetch(`${PORT}/signup`, {
                 method: "POST", // Assuming this should be a POST request
                 headers: {
                     "Content-Type": "application/json",
